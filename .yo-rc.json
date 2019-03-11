@@ -1,0 +1,10 @@
+{
+  "generator-jhipster-module": {
+    "promptValues": {
+      "githubName": "contributionjhipsteruga",
+      "authorName": "contributionjhipsteruga",
+      "authorEmail": "contributionjhipsteruga@gmail.com",
+      "authorUrl": "github.com/contribution-jhipster-uga"
+    }
+  }
+}
