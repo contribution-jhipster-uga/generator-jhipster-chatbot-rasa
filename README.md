@@ -59,7 +59,11 @@ Then, you can launch your bot on your own and run the app with :
 ./mvnw
 ```
 
-If you need to modify some parameters of the widget, it has been added in src/main/webapp/app/app.tsx under <Footer /> and you can refer to the [webchat github](https://github.com/mrbot-ai/rasa-webchat) to know what you can do with it.
+If you need to modify some parameters of the widget, it has been added in src/main/webapp/app/app.tsx under 
+```bash
+<Footer />
+```
+and you can refer to the [webchat github](https://github.com/mrbot-ai/rasa-webchat) to know what you can do with it.
 
 # License
 
