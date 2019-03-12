@@ -3,6 +3,7 @@ const packagejs = require('../../package.json');
 const semver = require('semver');
 const BaseGenerator = require('generator-jhipster/generators/generator-base');
 const jhipsterConstants = require('generator-jhipster/generators/generator-constants');
+const jhipsterUtils = require('generator-jhipster/generators/utils');
 
 module.exports = class extends BaseGenerator {
     get initializing() {
@@ -37,27 +38,12 @@ module.exports = class extends BaseGenerator {
     }
 
     prompting() {
-        const prompts = [
-            {
-                type: 'input',
-                name: 'message',
-                message: 'Please put something',
-                default: 'hello world!'
-            }
-        ];
 
-        const done = this.async();
-        this.prompt(prompts).then((props) => {
-            this.props = props;
-            // To access props later use this.props.someOption;
-
-            done();
-        });
     }
 
     writing() {
         // function to use directly template
-        this.template = function (source, destination) {
+        this.template = function(source, destination) {
             this.fs.copyTpl(
                 this.templatePath(source),
                 this.destinationPath(destination),
@@ -81,40 +67,47 @@ module.exports = class extends BaseGenerator {
         const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
         const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
 
-        // variable from questions
-        this.message = this.props.message;
 
-        // show all variables
-        this.log('\n--- some config read from config ---');
-        this.log(`baseName=${this.baseName}`);
-        this.log(`packageName=${this.packageName}`);
-        this.log(`clientFramework=${this.clientFramework}`);
-        this.log(`clientPackageManager=${this.clientPackageManager}`);
-        this.log(`buildTool=${this.buildTool}`);
+        if (this.clientFramework === 'react') {
+            jhipsterUtils.replaceContent({
+                file: `${webappDir}app/app.tsx`,
+                pattern: `<Footer />`,
+                content: `<Footer />
+            <Widget
+            interval={2000}
+            initPayload={'/get_started'}
+            socketUrl={'http://localhost:5002'}
+            socketPath={'/socket.io/'}
+            title={'JHipster Chatbot'}
+            inputTextFieldHint={'Type a message...'}
+            connectingText={'Waiting for server...'}
+            embedded={false}
+            hideWhenNotConnected
+            params={{
+              images: {
+                dims: {
+                  width: 300,
+                  height: 200
+                }
+              },
+              storage: 'local'
+            }}
+            />`,
+                regex: false
+            }, this);
 
-        this.log('\n--- some function ---');
-        this.log(`angularAppName=${this.angularAppName}`);
+            jhipsterUtils.replaceContent({
+                file: `${webappDir}app/app.tsx`,
+                pattern: `import React from 'react';`,
+                content: `import React from 'react';\nimport { Widget } from 'rasa-webchat';`,
+                regex: false
+            }, this);
 
-        this.log('\n--- some const ---');
-        this.log(`javaDir=${javaDir}`);
-        this.log(`resourceDir=${resourceDir}`);
-        this.log(`webappDir=${webappDir}`);
 
-        this.log('\n--- variables from questions ---');
-        this.log(`\nmessage=${this.message}`);
-        this.log('------\n');
-
-        if (this.clientFramework === 'angular1') {
-            this.template('dummy.txt', 'dummy-angular1.txt');
-        }
-        if (this.clientFramework === 'angularX' || this.clientFramework === 'angular2') {
-            this.template('dummy.txt', 'dummy-angularX.txt');
-        }
-        if (this.buildTool === 'maven') {
-            this.template('dummy.txt', 'dummy-maven.txt');
-        }
-        if (this.buildTool === 'gradle') {
-            this.template('dummy.txt', 'dummy-gradle.txt');
+            this.addNpmDependency('rasa-webchat','github:mrbot-ai/rasa-webchat');
+        }else{
+            console.log("This generator only works with react");
+            process.exit(1);
         }
     }
 

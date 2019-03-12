@@ -4,7 +4,7 @@
   "description": "Integrate an interface to use with a bot using the Rasa Stack.",
   "keywords": [
     "yeoman-generator",
-    "jhipster-module", 
+    "jhipster-module",
     "jhipster-5"
   ],
   "homepage": "https://github.com/contributionjhipsteruga/generator-jhipster-chatbot-rasa",
