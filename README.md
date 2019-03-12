@@ -12,6 +12,8 @@ As this is a [JHipster](http://jhipster.github.io/) module, we expect you have J
 
 - [Installing JHipster](https://jhipster.github.io/installation.html)
 
+Your JHipster project must be a React application as this only works with React for now.
+
 You will also need a bot using the Rasa Stack and expose it with SocketIO : [See instructions in the Rasa Core Documentation](https://rasa.com/docs/core/connectors/#socketio-connector) or on the [webchat](https://github.com/mrbot-ai/rasa-webchat) README.
 
 # Installation
