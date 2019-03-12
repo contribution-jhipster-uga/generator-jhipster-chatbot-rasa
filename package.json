@@ -1,17 +1,19 @@
 {
   "name": "generator-jhipster-chatbot-rasa",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Integrate an interface to use with a bot using the Rasa Stack.",
   "keywords": [
     "yeoman-generator",
     "jhipster-module",
-    "jhipster-5"
+    "jhipster-5",
+    "rasa",
+    "chatbot"
   ],
   "homepage": "https://github.com/contributionjhipsteruga/generator-jhipster-chatbot-rasa",
   "author": {
-    "name": "contributionjhipsteruga",
-    "email": "contributionjhipsteruga@gmail.com",
-    "url": "github.com/contribution-jhipster-uga"
+    "name": "Contribution Jhipster UGA, Julien COURTIAL, Hugo GROS-DAILLON, Cédric LAFRASSE, Bastien TERRIER (https://github.com/contribution-jhipster-uga/)",
+    "email": "contribution.jhipster.uga@gmail.com",
+    "url": "https://github.com/contribution-jhipster-uga"
   },
   "files": [
     "generators"
