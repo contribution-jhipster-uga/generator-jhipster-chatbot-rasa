@@ -12,9 +12,7 @@ As this is a [JHipster](http://jhipster.github.io/) module, we expect you have J
 
 - [Installing JHipster](https://jhipster.github.io/installation.html)
 
-Your JHipster project must be a React application as this only works with React for now.
-
-You will also need a bot using the Rasa Stack and expose it with SocketIO : [See instructions in the Rasa Core Documentation](https://rasa.com/docs/core/connectors/#socketio-connector) or on the [webchat](https://github.com/mrbot-ai/rasa-webchat) README.
+You will also need a bot using the Rasa Stack and expose it with SocketIO : [See instructions in the Rasa Core Documentation](https://rasa.com/docs/core/connectors/#socketio-connector), on the [react webchat](https://github.com/mrbot-ai/rasa-webchat) README or on the [angular webchat](https://www.npmjs.com/package/angular-chat-widget-rasa).
 
 # Installation
 
@@ -54,18 +52,28 @@ First, you have to run the generator using the following command :
 yo jhipster-chatbot-rasa
 ```
 
-It will modify 2 files (package.json and app.tsx) and you must agree to overwrite them.
-
 Then, you can launch your bot on your own and run the app with :
 ```bash
 ./mvnw
 ```
 
-If you need to modify some parameters of the widget, it has been added in src/main/webapp/app/app.tsx under 
+## React
+
+It will modify 2 files (package.json and app.tsx) and you must agree to overwrite them.
+
+If you need to modify some parameters of the widget, it has been added in src/main/webapp/app/app.tsx under
 ```bash
 <Footer />
 ```
 and you can refer to the [webchat github](https://github.com/mrbot-ai/rasa-webchat) to know what you can do with it.
+
+## Angular
+
+It will modify 3 files (package.json, app.module.ts and main.component.html) and you must agree to overwrite them.
+
+If you need to modify some parameters of the component, it has been added in src/main/webapp/app/layouts/main/main.component.html
+
+and you can refer to the [webchat npm page](https://www.npmjs.com/package/angular-chat-widget-rasa) to know what you can change.
 
 # License
 
