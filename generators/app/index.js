@@ -69,6 +69,8 @@ module.exports = class extends BaseGenerator {
 
 
         if (this.clientFramework === 'react') {
+
+          //Adding the component in app.tsx
             jhipsterUtils.replaceContent({
                 file: `${webappDir}app/app.tsx`,
                 pattern: `<Footer />`,
@@ -96,6 +98,7 @@ module.exports = class extends BaseGenerator {
                 regex: false
             }, this);
 
+            //Adding import for Widget module
             jhipsterUtils.replaceContent({
                 file: `${webappDir}app/app.tsx`,
                 pattern: `import React from 'react';`,
@@ -103,11 +106,36 @@ module.exports = class extends BaseGenerator {
                 regex: false
             }, this);
 
-
+            //Adding dependency to install module
             this.addNpmDependency('rasa-webchat','github:mrbot-ai/rasa-webchat');
-        }else{
-            console.log("This generator only works with react");
-            process.exit(1);
+        }else if(this.clientFramework === 'angularX'){
+
+          //Adding imports in app.module.ts
+          jhipsterUtils.rewriteFile({
+              file: `${webappDir}app/app.module.ts`,
+              needle: 'jhipster-needle-angular-add-module-import',
+              splicable: [`import { ChatbotRasaModule } from 'angular-chat-widget-rasa';`]
+          }, this);
+
+          jhipsterUtils.rewriteFile({
+              file: `${webappDir}app/app.module.ts`,
+              needle: 'jhipster-needle-angular-add-module',
+              splicable: [`ChatbotRasaModule,`]
+          }, this);
+
+          //Adding component to main component
+          jhipsterUtils.replaceContent({
+              file: `${webappDir}app/layouts/main/main.component.html`,
+              pattern: `<jhi-footer></jhi-footer>`,
+              content: `<jhi-footer></jhi-footer>\n\t<chat-widget></chat-widget>`,
+              regex: false
+          }, this);
+
+          //Adding npm dependency to install module
+          this.addNpmDependency('angular-chat-widget-rasa','latest');
+          this.addNpmDependency('@angular/animations','^7.2.9');
+          this.addNpmDependency('@angular/platform-browser','^7.2.9');
+          this.addNpmDependency('rxjs-compat','^6.4.0');
         }
     }
 
