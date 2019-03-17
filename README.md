@@ -6,7 +6,7 @@
 
 This is a [JHipster](http://jhipster.github.io/) module, that is meant to be used in a JHipster application. This module integrates an interface to use with a bot using the [Rasa](https://rasa.com/) stack. The interface used is from this [webchat](https://github.com/mrbot-ai/rasa-webchat) used on [Rasa](https://rasa.com/).
 
-![](angularExample.gif)
+![](https://raw.githubusercontent.com/contribution-jhipster-uga/generator-jhipster-chatbot-rasa/master/angularExample.gif)
 
 # Prerequisites
 
