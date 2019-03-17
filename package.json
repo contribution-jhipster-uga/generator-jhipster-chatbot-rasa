@@ -1,6 +1,6 @@
 {
   "name": "generator-jhipster-chatbot-rasa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Integrate an interface to use with a bot using the Rasa Stack.",
   "keywords": [
     "yeoman-generator",
