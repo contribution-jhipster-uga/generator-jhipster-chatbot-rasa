@@ -6,13 +6,15 @@
 
 This is a [JHipster](http://jhipster.github.io/) module, that is meant to be used in a JHipster application. This module integrates an interface to use with a bot using the [Rasa](https://rasa.com/) stack. The interface used is from this [webchat](https://github.com/mrbot-ai/rasa-webchat) used on [Rasa](https://rasa.com/).
 
+![](angularExample.gif)
+
 # Prerequisites
 
 As this is a [JHipster](http://jhipster.github.io/) module, we expect you have JHipster and its related tools already installed:
 
 - [Installing JHipster](https://jhipster.github.io/installation.html)
 
-You will also need a bot using the Rasa Stack and expose it with SocketIO : [See instructions in the Rasa Core Documentation](https://rasa.com/docs/core/connectors/#socketio-connector), on the [react webchat](https://github.com/mrbot-ai/rasa-webchat) README or on the [angular webchat](https://www.npmjs.com/package/angular-chat-widget-rasa).
+You will also need a bot using the Rasa Stack ([Getting started example](https://rasa.com/docs/get_started_step1/)) and expose it with SocketIO : [See instructions in the Rasa Core Documentation](https://rasa.com/docs/core/connectors/#socketio-connector), on the [react webchat](https://github.com/mrbot-ai/rasa-webchat) README or on the [angular webchat](https://www.npmjs.com/package/angular-chat-widget-rasa).
 
 # Installation
 
